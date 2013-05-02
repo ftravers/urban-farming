@@ -4,4 +4,7 @@
 
 (defsystem web1
   :name "web1"
-  :components ((:file "start")))
+  :components ((:file "start")
+               (:file "second"))
+   :depends-on ("hunchentoot")
+)

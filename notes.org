@@ -1,0 +1,7 @@
+in: 
+((:name "abc")(:name "xyz"))
+
+out:
+(:li "abc")
+(:li "xyz")
+

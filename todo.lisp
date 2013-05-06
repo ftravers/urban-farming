@@ -47,3 +47,6 @@
 (defun print-out (str)
   (format t "~a~%" (frmtr-1 str)))
 (values)
+
+
+;; (doit #'clprep TDL)

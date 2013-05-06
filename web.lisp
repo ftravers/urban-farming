@@ -7,12 +7,10 @@
      (:head (:title "Hello, world!"))
      (:body
       (:h1 "Hello, world!")
-      (:p "This is my Lisp web server, running on Hunchentoot,"
-          " as described in "
-          (:a :href
-              "http://newartisans.com/blog_files/hunchentoot.primer.php"
-              "this blog entry")
-          " on Common Lisp and Hunchentoot.")))))
+      (:ul
+       (loop for task in *todo-list*
+             do (htm (:li (str (task-string task))))))
+))))
 
 
 (defun ctrlr-about () "this is the about2")

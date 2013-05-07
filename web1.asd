@@ -7,7 +7,7 @@
                (:file "web" :depends-on ("package"))
                (:file "todo":depends-on ("package"))
                (:file "test-data":depends-on ("package" "todo")))
-  :depends-on (:hunchentoot :cl-who))
+  :depends-on (:hunchentoot :cl-who :elephant))
 
 
 

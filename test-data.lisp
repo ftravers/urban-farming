@@ -1,7 +1,9 @@
 (in-package :web1)
-;; create some testdata
-(setf *todo-list* nil)
-(add-task '(:title "get soap" :assigned-to "bob" :location "pharmacy"))
-(add-task '(:title "return books" :assigned-to "jane" :location "library"))
-(add-task '(:title "buy milk" :assigned-to "bob" :location "grocery"))
-(defvar single-task '(:title "buy milk" :assigned-to "bob" :location "grocery"))
+
+;; (make-instance 'task :title "Get soap" :assigned-to "bob" :location "pharmacy")
+;; (make-instance 'task :title "Do laund" :assigned-to "joe" :location "laundromat")
+;; (defvar t1 (make-instance 'task :title "Buy milk" :assigned-to "bob" :location "grocery"))
+
+(elephant:get-instances-by-value 'task 'assigned-to "bob")
+(elephant:get-instances-by-class 'task)
+

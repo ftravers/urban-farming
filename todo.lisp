@@ -1,15 +1,21 @@
 ;; (asdf:operate 'asdf:load-op 'web1)
 (in-package :web1)
-(defvar *todo-list* nil)
-(defun add-task (task)
-  (push task *todo-list*))
 
-(defun task-string (plist)
-  (apply #'format (append (list nil "~a: ~a at ~a") (get-who-what-where plist))))
+(elephant:defpclass task ()
+  ((title :initarg :title
+          :accessor title
+          :index t)
+   (assigned-to :initarg :assigned-to
+                :accessor assigned-to
+                :index t)
+   (location :initarg :location
+             :accessor location
+             :index t)
+   (timestamp :initarg :timestamp
+              :accessor timestamp
+              :initform (get-universal-time)
+              :index t)))
 
-(defun get-who-what-where (plist)
-  (let ((who (getf plist :assigned-to)) 
-        (location (getf plist :location))
-        (what (getf plist :title)))
-    (list who what location)))
+;; Open the store where our data is stored
+(defvar *elephant-store* (elephant:open-store '(:clsql (:sqlite3 "/tmp/tasks.db"))))
 

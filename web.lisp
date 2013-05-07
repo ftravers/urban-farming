@@ -1,3 +1,4 @@
+;;(hunchentoot:start (make-instance 'hunchentoot:easy-acceptor :port 4242))
 (in-package :web1)
 
 (defun ctrlr-index () 
@@ -8,8 +9,8 @@
      (:body
       (:h1 "Hello, world!")
       (:ul
-       (loop for task in *todo-list*
-             do (htm (:li (str (task-string task))))))
+       (loop for task in (all-tasks 'title)
+             do (htm (:li (str (pp-task task))))))
 ))))
 
 

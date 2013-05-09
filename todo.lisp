@@ -1,5 +1,4 @@
 (declaim (optimize (speed 0) (space 1) (compilation-speed 0) (debug 3)))
-
 ;; (asdf:operate 'asdf:load-op 'web1)
 (in-package :web1)
 
